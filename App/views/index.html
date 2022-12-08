@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trucker Driver Happiness</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        /* Extra styles for the cancel button */
+        .loginbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .loginbtn,
+        .signupbtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+            padding: 16px;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+
+            .loginbtn,
+            .signupbtn {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+
+<body>
+    <div class="clearfix">
+        <a href="./login.html">
+            <button type="button" class="loginbtn">Login</button></a>
+        <a href="./signup.html">
+            <button type="submit" class="signupbtn">Sign Up</button></a>
+    </div>
+    <script src="/app.js"></script>
+</body>
+
+</html>

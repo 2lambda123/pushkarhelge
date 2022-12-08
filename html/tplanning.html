@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+<h1>Trip Planner</h1>
+<p>Enter total trip time (in hours): <input type="text" id="tripTime"></p>
+<button onclick="planTrip()">Plan Trip</button>
+
+<br><br>
+
+<table id="tripPlan">
+  <tr>
+    <th>Day</th>
+    <th>Driving Time</th>
+    <th>Small Break Time</th>
+    <th>Rest Time</th>
+  </tr>
+</table>
+<script>
+  function planTrip() {
+    // get total trip time from input field
+    // var tripTime = document.getElementById("tripTime").value;
+    var tripTime = window.localStorage.getItem('res');
+    
+    // calculate total number of days for the trip
+    var numDays = Math.ceil(tripTime / 10);
+
+    // initialize variables for trip plan
+    var drivingTime = 0;
+    var smallBreakTime = 0;
+    var restTime = 0;
+
+    // create table rows for each day of the trip
+    var table = document.getElementById("tripPlan");
+    for (var i = 1; i <= numDays; i++) {
+      var row = table.insertRow(-1);
+      var dayCell = row.insertCell(0);
+      var drivingTimeCell = row.insertCell(1);
+      var smallBreakTimeCell = row.insertCell(2);
+      var restTimeCell = row.insertCell(3);
+
+      // set values for each cell in the row
+      dayCell.innerHTML = i;
+
+      // calculate driving time for the day
+      drivingTime = Math.min(9, tripTime - drivingTime);
+      drivingTimeCell.innerHTML = drivingTime + " hours";
+
+      // calculate small break time for the day
+      smallBreakTime = Math.floor(drivingTime / 5) * 0.75;
+      smallBreakTimeCell.innerHTML = smallBreakTime + " hours";
+
+      // calculate rest time for the day
+      if (i % 6 == 0) {
+        restTime = 11;
+      } else {
+        restTime = 9;
+      }
+      restTime = 11;
+      restTimeCell.innerHTML = restTime + " hours";
+    }
+  }
+</script>
+</body>
+</html>

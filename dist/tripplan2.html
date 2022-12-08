@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Truck Driver Trip Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .flowchart {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .flowchart .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .flowchart .item .label {
+            flex: 1;
+            text-align: left;
+        }
+
+        .flowchart .item .arrow {
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Truck Driver Trip Planner</h1>
+        <div class="form">
+            <!-- <input type="number" id="route-time" placeholder="Enter route time (in hours)"> -->
+            <button onclick="generatePlan()">Generate Plan</button>
+        </div>
+        <div id="flowchart" class="flowchart"></div>
+    </div>
+    <script>
+        function generatePlan() {
+            // Get route time from input
+            // const routeTime = document.getElementById('route-time').value;
+            const routeTime = window.localStorage.getItem('res');
+
+
+            // Calculate total number of driving days
+            const totalDays = Math.ceil(routeTime / 9);
+
+            // Calculate number of times daily driving time can be extended to 10 hours
+            const extendedDrivingDays = Math.floor(totalDays / 7) * 2;
+
+            // Calculate number of times daily rest period can be reduced to 9 hours
+            const reducedRestDays = Math.min(Math.floor((totalDays - extendedDrivingDays) / 7), 3);
+
+            // Calculate number of weekly rest days
+            const weeklyRestDays = Math.ceil((totalDays - extendedDrivingDays - reducedRestDays) / 6);
+
+            // Generate flowchart
+            let flowchart
+
+                = "<div class='item'><div class='label'>Start</div></div>";
+            for (let i = 0; i < totalDays; i++) {
+                let drivingTime = 9;
+                let restTime = 11;
+                if (i < extendedDrivingDays) {
+                    drivingTime = 10;
+                }
+                if (i < extendedDrivingDays + reducedRestDays) {
+                    restTime = 9;
+                }
+                flowchart += "<div class='item'><div class='label'>Drive for " + drivingTime + " hours</div><div class='arrow'>→</div></div>";
+                flowchart += "<div class='item'><div class='label'>Take a break of 45-60 minutes</div><div class='arrow'>→</div></div>";
+                flowchart += "<div class='item'><div class='label'>Rest for " + restTime + " hours</div><div class='arrow'>→</div></div>";
+                if ((i + 1) % 6 === 0) {
+                    let weeklyRest = 45;
+                    if (weeklyRestDays > 1) {
+                        weeklyRest = 24;
+                    }
+                    flowchart += "<div class='item'><div class='label'>Take a weekly rest of " + weeklyRest + " hours</div><div class='arrow'>→</div></div>";
+                }
+            }
+            flowchart += "<div class='item'><div class='label'>End</div></div>";
+
+            // Display flowchart
+            document.getElementById('flowchart').innerHTML = flowchart;
+        }
+    </script>
+</body>
+
+</html>
