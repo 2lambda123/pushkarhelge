@@ -22,7 +22,13 @@ Below is the instruction how to run the project in your local device.
 6. `npm start`, this will start a http server which will serve files. Open the browser, choose dist directory and click on one of the html files.
 7. The server should start at https://localhost:8080 (if the port was already in use, check your console - http server prints what port it is running on), you can open it in the browser.
 8. Also open another terminal or command line tool in the same folder.
-9. `npm install nodemon`, this will install nodemon in the device
-10. `cd App`, this will dircect the directory to App folder
-11. `nodemon app.js`, this will start the web app at localhost.
-12. open browser and type `localhost` in the place of URL.
+9. `npm install express` , this will install express in the device.
+10. `npm install hbs`, this will install hbs template in the device.
+11. `npm install nodemon`, this will install nodemon in the device
+12. `cd App`, this will dircect the directory to App folder
+13. `nodemon app.js`, this will start the web app at localhost.
+14. open browser and type `localhost` in the place of URL.
+15. For log in type username as `TomTom` and password as `next`.
+
+
+## Thanks for the read!
