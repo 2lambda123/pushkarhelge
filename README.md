@@ -28,7 +28,7 @@ Below is the instruction how to run the project in your local device.
 12. `cd App`, this will dircect the directory to App folder
 13. `nodemon app.js`, this will start the web app at localhost.
 14. open browser and type `localhost` in the place of URL.
-15. For log in type username as `TomTom` and password as `next`.
+15. For Log In type username as `TomTom` and password as `next`.
 
 
 ## Thanks for the read!
