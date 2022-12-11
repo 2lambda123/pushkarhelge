@@ -3,7 +3,7 @@
 
 Output       
 :-------------------------:
-![Output](Trucker-Trip-Planner/App/static/CSS/home.png?raw=true "Output") 
+![Output](Trucker-Trip-Planner/App/static/CSS/home.png "Output") 
 
 
 ## Resources
