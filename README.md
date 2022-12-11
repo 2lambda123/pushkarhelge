@@ -1,5 +1,11 @@
 # Trucker Trip Planner
 
+
+Output       
+:-------------------------:
+![Output](Trucker-Trip-Planner/Output/home.png?raw=true "Output") 
+
+
 ## Resources
 
 Please refer to:
