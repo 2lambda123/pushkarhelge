@@ -3,8 +3,7 @@
 
 Output       
 :-------------------------:
-![Output](Trucker-Trip-Planner/App/static/CSS/home.png "Output") 
-
+![home](https://user-images.githubusercontent.com/100338261/206921767-eeac5617-d23e-4537-802d-31b9a6fef1d9.png)
 
 ## Resources
 
